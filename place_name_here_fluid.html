@@ -1,0 +1,576 @@
+<!-- v1.2 fluid tables -->
+<!-- Works for everything but blackberry, and possibly andriod 2.3 -->
+
+<!-- there are two wrapping tables,
+      • one that is a full wrapper,
+      • another that has a fixed width for larger displays.  -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;" />
+   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Place Title Here</title>
+
+  <style type="text/css">
+    html { -webkit-font-smoothing: antialiased; }
+    #outlook a{padding:0;}
+    .ReadMsgBody{width:100%;} .ExternalClass{width:100%;} /* Force Hotmail to display emails at full width */
+    .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmail to display normal line spacing */
+    body, table, td, p, a, li, blockquote{-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;} /* Prevent WebKit and Windows mobile changing default text sizes */
+    table, td{mso-table-lspace:0pt; mso-table-rspace:0pt;} /* Remove spacing between tables in Outlook 2007 and up */
+    img{-ms-interpolation-mode:bicubic;} /* Allow smoother rendering of resized image in Internet Explorer */
+
+
+    body{margin:0; padding:0; font-family: helvetica, verdana, san-serif; }
+    img{border:0; height:auto; line-height:100%; outline:none; text-decoration:none; display: block;}
+    table, table td {border-collapse:collapse !important;}
+    body, #bodyCell{height:100% !important; margin:0; padding:0; width:100% !important;}
+
+    .preheaderContent a:link, .preheaderContent a:visited, /* Yahoo! Mail Override */ .preheaderContent a .yshortcuts /* Yahoo! Mail Override */{
+      color:#606060;
+      font-weight:normal;
+      text-decoration:underline;
+    }
+
+    #wrappingTable {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
+    .maxwidth{width:600px;}
+
+    h1, p {
+      -webkit-margin-before: 0px;
+      -webkit-margin-after: 0px;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+    }
+
+
+    /* /\/\/\/\/\/\/\/\/ MOBILE STYLES /\/\/\/\/\/\/\/\/ */
+    @media only screen and (max-device-width: 480px) {
+      a[href^="tel"], a[href^="sms"] {
+        text-decoration: none;
+        /* UPDATE*/ color: black;
+        pointer-events: none;
+        cursor: default;
+      }
+      .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
+        text-decoration: default;
+        /* UPDATE*/ color: orange !important;
+        pointer-events: auto;
+        cursor: default;
+      }
+    }
+
+
+    @media only screen and (max-width: 600px){
+      /* /\/\/\/\/\/\/ CLIENT-SPECIFIC MOBILE STYLES /\/\/\/\/\/\/ */
+      body, table, td, p, a, li, blockquote{-webkit-text-size-adjust:none !important;}
+      body{width:100% !important; min-width:100% !important;}
+
+      table[class="maxwidth"], .maxwidth {width: 100% !important;}
+      .colImage {
+        height:auto !important;
+/*        max-width:560px !important;*/
+        width: 100% !important;
+      }
+    }
+
+
+    /* /\/\/\/\/\/\/\/\/ MOBILE STYLES /\/\/\/\/\/\/\/\/ */
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+      a[href^="tel"], a[href^="sms"] {
+        text-decoration: none;
+        /* UPDATE*/ color: blue;
+        pointer-events: none;
+        cursor: default;
+      }
+
+      .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
+        text-decoration: default;
+        /* UPDATE*/ color: orange !important;
+        pointer-events: auto;
+        cursor: default;
+      }
+    }
+
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    /* Put your iPhone 4g styles in here */
+    }
+    /* Following Android targeting from: */
+    @media only screen and (-webkit-device-pixel-ratio:.75){
+      /* Put CSS for low density (ldpi) Android layouts in here */
+    }
+    @media only screen and (-webkit-device-pixel-ratio:1){
+      /* Put CSS for medium density (mdpi) Android layouts in here */
+    }
+    @media only screen and (-webkit-device-pixel-ratio:1.5){
+      /* Put CSS for high density (hdpi) Android layouts in here */
+    }
+  </style>
+  <!-- Targeting Windows Mobile -->
+  <!--[if IEMobile 7]>
+  <style type="text/css">
+
+  </style>
+  <![endif]-->
+
+  <!-- ***********************************************
+  ****************************************************
+  END MOBILE TARGETING
+  ****************************************************
+  ************************************************ -->
+
+  <!--[if gte mso 9]>
+  <style>
+    /* Target Outlook 2007 and 2010 */
+  </style>
+  <![endif]-->
+</head>
+
+<body bgcolor="#222" style="background:#222; word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;">
+
+
+
+<!-- WRAPPING TABLE - TO PRODUCE FULL BACKGROUND COLOR THAT CONTENT TABLE GOES INSIDE. -->
+<table id="wrappingTable" align="center" bgcolor="#222" cellpadding="0" cellspacing="0" border="0" text="#131416" alink="blue" link="blue" style="background:#222; font-size: 12px; color:#131416; font-family: Helvetica, Arial, sans-serif;">
+  <tr>
+    <!-- Set alignment center on the TD for yahoo other clients read off the table -->
+    <td align="center" style="padding-bottom: 20px;">
+
+      <!-- LIMIT CONTENT WIDTH -->
+      <table width="600" class="maxwidth" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td>
+            <!-- BEGIN CONTENT -->
+
+            <!-- PREHEADER -->
+            <table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#EBECEF">
+              <tr>
+                <td style="font-size: 12px; line-height: 24px; padding: 20px 0 20px 20px; text-align: left;">
+                  <div>Preheader information here.</div>
+                </td>
+                <td align="right" style="font-size: 12px; line-height: 24px; padding: 20px 20px 20px 0; text-align: right;">
+                  <div>View as a webpage or something</div>
+                </td>
+              </tr>
+            </table>
+
+            <!-- SPACER TABLE (BASICALLY TO GIVE A MARGIN) -->
+            <table width="100%" align="center"  cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td align="center" style="padding: 5px; line-height: 0;">
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+
+            <!-- ONE COLUMN TABLE -->
+            <table width="100%" align="center"  cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
+              <tr>
+                <td align="center" style="padding: 20px 20px 0 20px; text-align: left;">
+                  <!-- MAKE SURE THE MAX WIDTH OF THE IMAGE IS NO LARGER THEN THE LARGEST SIZE IT SOULD DISPLAY AT -->
+                  <img width="560" class="colImage" src="http://static.pexels.com/wp-content/uploads/2014/11/cooking-food-homemade-3329-831x550.jpg" alt="Some Alt Text Goes Here" style="border:0; height:auto; line-height:100%; outline:none; text-decoration:none; display: block;" />
+                </td>
+              </tr>
+              <tr>
+                <td class="headling_one" style="padding: 16px 20px 0 20px; font-size: 26px; line-height: 32px; font-weight: bold; text-align: left;">
+                    Headline Goes Here
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 0 20px 16px 20px;">
+                  <hr style="color:#919090; background-color:#919090; height:1px; border:none;">
+                </td>
+              </tr>
+              <tr>
+                <td class="paragraph" style="padding: 0 20px 40px 20px; font-size: 13px; line-height: 22px; text-align: left;">
+                  <strong>font-size: 11px; line-height: 16px; </strong><br />
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum consequuntur ab sapiente esse dolores modi similique, enim deleniti laborum delectus. Nam repellendus ex itaque, reprehenderit pariatur. Aperiam autem veritatis velit!
+                </td>
+              </tr>
+            </table>
+
+            <!-- SPACER TABLE (BASICALLY TO GIVE A MARGIN) -->
+            <table width="100%" align="center"  cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td align="center" style="padding: 5px; line-height: 0;">
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+
+            <!-- TWO COLUMN TABLE -->
+            <table width="100%" align="center"  cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
+              <tr>
+                <td width="50%" valign="top" style="padding: 20px 10px 40px 20px; text-align: left;">
+                  <!-- begin table for content in left (1/2) column -->
+                  <table align="center"  cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
+                    <tr>
+                      <td align="center" >
+                        <img width="270" class="colImage" src="http://static.pexels.com/wp-content/uploads/2014/11/cooking-food-homemade-3329-831x550.jpg" alt="Some Alt Text Goes Here" style="border:0; height:auto; line-height:100%; outline:none; text-decoration:none; display: block;" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="headling_one" style="padding: 16px 10px 16px ; font-size: 26px; line-height: 32px; font-weight: bold;">
+                          padding added
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="paragraph" style="font-size: 13px; line-height: 22px; padding: 0 10px 0 10px;">
+                        <strong>font-size: 11px; line-height: 16px; </strong><br />
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum consequuntur ab sapiente esse dolores modi similique, enim deleniti laborum delectus. Nam repellendus ex itaque, reprehenderit pariatur. Aperiam autem veritatis velit!
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <!-- begin table for content in right (2/2) column -->
+                <td width="50%" valign="top" style="padding: 20px 20px 40px 10px; text-align: left;">
+                  <table align="center"  cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
+                    <tr>
+                      <td align="center" >
+                        <img width="270" class="colImage" src="http://static.pexels.com/wp-content/uploads/2014/11/cooking-food-homemade-3329-831x550.jpg" alt="Some Alt Text Goes Here" style="border:0; height:auto; line-height:100%; outline:none; text-decoration:none; display: block;" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="headling_one" style="padding: 16px 10px 16px 10px; font-size: 26px; line-height: 32px; font-weight: bold;">
+                          Headline Goes Here
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="paragraph" style="font-size: 13px; line-height: 22px; padding: 0 10px 0 10px;">
+                        <strong>font-size: 11px; line-height: 16px; </strong><br />
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum consequuntur ab sapiente esse dolores modi similique, enim deleniti laborum delectus. Nam repellendus ex itaque, reprehenderit pariatur. Aperiam autem veritatis velit!
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <!-- SPACER TABLE (BASICALLY TO GIVE A MARGIN) -->
+            <table width="100%" align="center"  cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td align="center" style="padding: 5px; line-height: 0;">
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+
+            <!-- TWO COLUMN TABLE -->
+            <table width="100%" align="center"  cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
+              <tr>
+                <td width="50%" valign="top" style="padding: 20px 10px 20px 20px; text-align: left;">
+                  <!-- begin table for content in left (1/2) column -->
+                  <table align="center"  cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
+                    <tr>
+                      <td align="center" >
+                        <img width="270" class="colImage" src="http://static.pexels.com/wp-content/uploads/2014/11/cooking-food-homemade-3329-831x550.jpg" alt="Some Alt Text Goes Here" style="border:0; height:auto; line-height:100%; outline:none; text-decoration:none; display: block;" />
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <!-- begin table for content in right (2/2) column -->
+                <td width="50%" valign="top" style="padding: 20px 20px 20px 10px; text-align: left;">
+                  <table align="center"  cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
+                    <tr>
+                      <td class="headling_one" style="padding: 0 10px 16px 10px; font-size: 26px; line-height: 32px; font-weight: bold;">
+                        2 Column Example
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="paragraph" style="font-size: 13px; line-height: 22px; padding: 0 10px 0 10px;">
+                        <strong>font-size: 11px; line-height: 16px; </strong><br />
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum consequuntur ab sapiente esse dolores modi similique, enim deleniti laborum delectus.
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <!-- SPACER TABLE (BASICALLY TO GIVE A MARGIN) -->
+            <table width="100%" align="center"  cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td align="center" style="padding: 5px; line-height: 0;">
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+
+            <!-- 70/30 COLUMN TABLE -->
+            <table width="100%" align="center"  cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
+              <tr>
+                <td width="70%" valign="top" style="padding: 20px 10px 40px 20px; text-align: left;">
+                  <!-- begin table for content in left (1/2) column -->
+                  <table align="center"  cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
+                    <tr>
+                      <td align="center" >
+                        <img width="360" class="colImage" src="http://static.pexels.com/wp-content/uploads/2014/11/cooking-food-homemade-3329-831x550.jpg" alt="Some Alt Text Goes Here" style="border:0; height:auto; line-height:100%; outline:none; text-decoration:none; display: block;" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="headling_one" style="padding: 16px 10px 16px ; font-size: 26px; line-height: 32px; font-weight: bold;">
+                          padding added
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="paragraph" style="font-size: 13px; line-height: 22px; padding: 0 10px 0 10px;">
+                        <strong>font-size: 11px; line-height: 16px; </strong><br />
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum consequuntur ab sapiente esse dolores modi similique, enim deleniti laborum delectus. Nam repellendus ex itaque, reprehenderit pariatur. Aperiam autem veritatis velit!
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <!-- begin table for content in right (2/2) column -->
+                <td width="30%" valign="top" style="padding: 20px 20px 40px 10px; text-align: left;">
+                  <table align="center"  cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
+                    <tr>
+                      <td align="center" >
+                        <img width="180" class="colImage" src="http://static.pexels.com/wp-content/uploads/2014/11/cooking-food-homemade-3329-831x550.jpg" alt="Some Alt Text Goes Here" style="border:0; height:auto; line-height:100%; outline:none; text-decoration:none; display: block;" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="headling_one" style="padding: 16px 10px 16px 10px; font-size: 26px; line-height: 32px; font-weight: bold;">
+                          Headline Goes Here
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="paragraph" style="font-size: 13px; line-height: 22px; padding: 0 10px 0 10px;">
+                        <strong>font-size: 11px; line-height: 16px; </strong><br />
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum consequuntur ab sapiente esse dolores modi similique, enim deleniti laborum delectus. Nam repellendus ex itaque, reprehenderit pariatur. Aperiam autem veritatis velit!
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <!-- SPACER TABLE (BASICALLY TO GIVE A MARGIN) -->
+            <table width="100%" align="center"  cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td align="center" style="padding: 5px; line-height: 0;">
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+
+            <!-- 30/70 COLUMN TABLE -->
+            <table width="100%" align="center"  cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
+              <tr>
+                <!-- begin table for content in left (1/2) column -->
+                <td width="30%" valign="top" style="text-align: left;">
+                  <table align="center"  cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
+                    <tr>
+                      <td align="center" style="padding: 20px 10px 0 20px;">
+                        <img width="180" class="colImage" src="http://static.pexels.com/wp-content/uploads/2014/11/cooking-food-homemade-3329-831x550.jpg" alt="Some Alt Text Goes Here" style="border:0; height:auto; line-height:100%; outline:none; text-decoration:none; display: block;" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="headling_one" style="padding: 16px 20px 16px 30px; font-size: 26px; line-height: 32px; font-weight: bold;">
+                          Headline Goes Here
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="paragraph" style="font-size: 13px; line-height: 22px; padding: 0 20px 30px 30px;">
+                        <strong>font-size: 11px; line-height: 16px; </strong><br />
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum consequuntur ab sapiente esse dolores modi similique, enim deleniti laborum delectus. Nam repellendus ex itaque, reprehenderit pariatur. Aperiam autem veritatis velit!
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <!-- begin table for content in right (2/2) column -->
+                <!-- In order to make the border not extend the table, the image size needs to be reduced by the width of the border -->
+                <!-- I'm sure this will NOT be noticeable in most cases -->
+                <td width="70%" valign="top" style="padding: 20px 20px 40px 10px; text-align: left; border-left: 5px solid gold;">
+                  <table align="center"  cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
+                    <tr>
+                      <td align="center" >
+                        <img width="355" class="colImage" src="http://static.pexels.com/wp-content/uploads/2014/11/cooking-food-homemade-3329-831x550.jpg" alt="Some Alt Text Goes Here" style="border:0; height:auto; line-height:100%; outline:none; text-decoration:none; display: block;" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="headling_one" style="padding: 16px 10px 16px ; font-size: 26px; line-height: 32px; font-weight: bold;">
+                          padding added
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="paragraph" style="font-size: 13px; line-height: 22px; padding: 0 10px 0 10px;">
+                        <strong>font-size: 11px; line-height: 16px; </strong><br />
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum consequuntur ab sapiente esse dolores modi similique, enim deleniti laborum delectus. Nam repellendus ex itaque, reprehenderit pariatur. Aperiam autem veritatis velit!
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <!-- SPACER TABLE (BASICALLY TO GIVE A MARGIN) -->
+            <table width="100%" align="center"  cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td align="center" style="padding: 5px; line-height: 0;">
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+
+            <!-- 3 COLUMN TABLE -->
+            <table width="100%" align="center"  cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
+              <tr>
+                <td width="33.333333333%" valign="top" style="text-align: left; padding: 20px 10px 20px 20px;">
+                  <!-- begin table for content in left (1/3) column -->
+                   <table align="center"  cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td align="center">
+                        <img width="170" class="colImage" src="http://static.pexels.com/wp-content/uploads/2014/11/cooking-food-homemade-3329-831x550.jpg" alt="Some Alt Text Goes Here" style="border:0; height:auto; line-height:100%; outline:none; text-decoration:none; display: block;" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="headling_one" style="padding: 16px 0 16px 0; font-size: 26px; line-height: 32px; font-weight: bold;">
+                          headline
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="paragraph" style="font-size: 13px; line-height: 22px; padding: 0 0 16px 0;">
+                        <strong>font-size: 11px; line-height: 16px; </strong><br />
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum consequuntur ab sapiente esse dolores modi similique, enim deleniti laborum delectus. Nam repellendus ex itaque, reprehenderit pariatur. Aperiam autem veritatis velit!
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td align="center" style="-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;" bgcolor="#e9703e"><a href="https://litmus.com" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; padding: 12px 18px; border: 1px solid #e9703e; display: inline-block;"><!--[if mso]>&nbsp;<![endif]-->Click Me<!--[if mso]>&nbsp;<![endif]--></a>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <!-- begin table for content in right (2/3) column -->
+                <td width="33.333333333%" valign="top" style="text-align: left; padding: 20px 15px 20px 15px;">
+                  <table align="center"  cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td align="center" >
+                        <img width="170" class="colImage" src="http://static.pexels.com/wp-content/uploads/2014/11/cooking-food-homemade-3329-831x550.jpg" alt="Some Alt Text Goes Here" style="border:0; height:auto; line-height:100%; outline:none; text-decoration:none; display: block;" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="headling_one" style="padding: 16px 0 16px 0; font-size: 26px; line-height: 32px; font-weight: bold;">
+                          headline
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="paragraph" style="font-size: 13px; line-height: 22px; padding: 0 0 16px 0;">
+                        <strong>font-size: 11px; line-height: 16px; </strong><br />
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum consequuntur ab sapiente esse dolores modi similique, enim deleniti laborum delectus. Nam repellendus ex itaque, reprehenderit pariatur. Aperiam autem veritatis velit!
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td align="center" style="-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;" bgcolor="#e9703e"><a href="https://litmus.com" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; padding: 12px 18px; border: 1px solid #e9703e; display: inline-block;"><!--[if mso]>&nbsp;<![endif]-->Click Me<!--[if mso]>&nbsp;<![endif]--></a>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <!-- begin table for content in right (3/3) column -->
+                <td width="33.333333333%" valign="top" style="text-align: left; padding: 20px 20px 20px 10px;">
+                  <table align="center"  cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td align="center" >
+                        <img width="170" class="colImage" src="http://static.pexels.com/wp-content/uploads/2014/11/cooking-food-homemade-3329-831x550.jpg" alt="Some Alt Text Goes Here" style="border:0; height:auto; line-height:100%; outline:none; text-decoration:none; display: block;" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="headling_one" style="padding: 16px 0 16px 0; font-size: 26px; line-height: 32px; font-weight: bold;">
+                          headline
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="paragraph" style="font-size: 13px; line-height: 22px; padding: 0 0 16px 0; ">
+                        <strong>font-size: 11px; line-height: 16px; </strong><br />
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum consequuntur ab sapiente esse dolores modi similique, enim deleniti laborum delectus. Nam repellendus ex itaque, reprehenderit pariatur. Aperiam autem veritatis velit!
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td align="center" style="-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;" bgcolor="#e9703e"><a href="https://litmus.com" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; padding: 12px 18px; border: 1px solid #e9703e; display: inline-block;"><!--[if mso]>&nbsp;<![endif]-->Click Me<!--[if mso]>&nbsp;<![endif]--></a>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <!-- SPACER TABLE (BASICALLY TO GIVE A MARGIN) -->
+            <table width="100%" align="center"  cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td align="center" style="padding: 5px; line-height: 0;">
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+
+
+            <table width="100%" height="500" align="center"  cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" background="http://static.pexels.com/wp-content/uploads/2014/11/cooking-food-homemade-3329-831x550.jpg" style="color: #FFF; display: block; height: 500px;">
+              <tr>
+                <td valign="top" style="padding: 40px 40px 20px 90px; color: #FFF; text-align: right;">
+                  <!-- a table has to be created in here in order to keep the content together. -->
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td style="padding: 0 0 16px 0; font-size: 36px; line-height: 42px; font-weight: bold; text-align:right; color: #FFF;">
+                        Lorem ipsum dolor sit amet.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="font-size: 16px; line-height: 24px; text-align:right; color: #FFF;">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt quisquam omnis qui distinctio pariatur, iusto aperiam ullam magni repellat inventore quam odio, voluptatum molestiae saepe. Voluptatem, iusto magnam reiciendis voluptatum.
+                      </td>
+                    </tr>
+                    <tr>
+                      <!-- in order to align the button (table) to the right, the TD needs align="right" vs text-align:right; like above -->
+                      <td align="right" style="padding-top: 20px; color: #FFF;">
+                        <table width="50%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td align="center" style="-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;" bgcolor="#DF8320"><a href="#" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; padding: 12px 18px; border: 1px solid #DF8320; display: inline-block;"><!--[if mso]>&nbsp;<![endif]-->Read M3 <!--[if mso]>&nbsp;<![endif]--></a></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <!-- SPACER TABLE (BASICALLY TO GIVE A MARGIN) -->
+            <table width="100%" align="center"  cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td align="center" style="padding: 5px; line-height: 0;">
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+
+
+
+
+
+            <!-- END CONTENT TABLE -->
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
